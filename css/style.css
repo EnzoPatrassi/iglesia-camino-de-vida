@@ -454,3 +454,77 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
+/* ========================================================
+   EFECTOS AVANZADOS (GLASSMORPHISM, 3D, DEGRADADOS Y SCROLL)
+   ======================================================== */
+
+/* 1. TEXTO CON DEGRADADO (Gradient Typography) */
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+/* 2. ENCABEZADO GLASSMORPHISM (Efecto vidrio esmerilado) */
+.glass-header {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 3. HERO BACKGROUND DINÁMICO Y TARJETA DE VIDRIO */
+.dynamic-bg {
+    /* Fondo limpio pero con sutiles destellos de color en las esquinas */
+    background: radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(44, 62, 80, 0.05) 0%, transparent 40%),
+                var(--bg-light) !important;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 50px 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+/* 4. ANIMACIONES DE APARICIÓN (REVEAL ON SCROLL) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px); /* Empieza un poco más abajo */
+    transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+
+/* Variaciones de dirección de entrada */
+.fade-left { transform: translateX(-60px); }
+.fade-right { transform: translateX(60px); }
+.fade-left.active, .fade-right.active { transform: translateX(0); }
+
+/* 5. EFECTO DE PROFUNDIDAD 3D EN TARJETAS */
+.card-3d {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
+}
+
+.card-3d:hover {
+    transform: translateY(-12px) scale(1.03) !important;
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.1) !important;
+    border-color: transparent !important; /* Desaparece el borde para dar más relieve */
+}
+
+/* Ajuste específico para que la tarjeta de WhatsApp brille verde en 3D */
+.contact-card.card-3d:hover {
+    border-color: #25d366 !important; 
+    box-shadow: 0 20px 45px rgba(37, 211, 102, 0.15) !important;
+}
