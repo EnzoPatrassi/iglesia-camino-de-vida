@@ -1,0 +1,413 @@
+/* --- RESET Y VARIABLES GENERALES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;       /* Color principal elegante/oscuro */
+    --accent-color: #3498db;        /* Azul moderno para detalles */
+    --accent-hover: #2980b9;
+    --bg-light: #f8f9fa;            /* Fondo claro alternativo */
+    --text-dark: #333333;
+    --text-muted: #666666;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;        /* Desplazamiento suave al hacer clic en el menú */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+/* --- ENCABEZADO (HEADER) --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    z-index: 1000;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 55px; /* Aumenta este valor si lo quieres más grande (ej. 60px u 80px) */
+    width: auto;  /* Mantiene la proporción original para que no se deforme */
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* --- ESTILOS GENERALES DE SECCIONES --- */
+.section {
+    padding: 90px 10% 60px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.small-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.section-title h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+}
+
+/* --- SECCIÓN HERO (INICIO) --- */
+.hero {
+    height: 80vh; /* Puedes ajustar la altura a tu gusto */
+    background: var(--bg-light); /* Fondo claro en lugar de la imagen oscura */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-dark); /* Texto oscuro para que contraste bien con el fondo claro */
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--primary-color); /* Color institucional para el título principal */
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-content .small-title {
+    color: var(--accent-color);
+    background: rgba(52, 152, 219, 0.1); /* Sutil fondo azulado claro para la etiqueta */
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* --- SECCIÓN SOBRE LA IGLESIA (ABOUT) --- */
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+/* --- HORARIOS --- */
+.schedule {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.schedule-card {
+    background: var(--bg-light);
+    border: 1px solid #eaeaea;
+    padding: 35px 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.schedule-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-color);
+}
+
+.schedule-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.schedule-card p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.schedule-card strong {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+}
+
+/* --- UBICACIÓN --- */
+.location-section {
+    background-color: var(--bg-light);
+}
+
+.location {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.map-placeholder iframe {
+    width: 100%;
+    height: 380px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.location-info h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.location-info p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+.button.primary {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.button.primary:hover {
+    background-color: var(--accent-hover);
+}
+
+/* --- STREAMING --- */
+.streaming-section {
+    text-align: center;
+}
+
+.streaming {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.video-placeholder {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* --- REDES SOCIALES --- */
+.social-section {
+    background-color: var(--bg-light);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--text-dark);
+    padding: 12px 22px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    color: var(--white);
+}
+
+/* Colores institucionales de marcas en redes */
+.social-youtube:hover { background-color: #ff0000; }
+.social-tiktok:hover { background-color: #000000; }
+.social-instagram:hover { background-color: #e1306c; }
+.social-spotify:hover { background-color: #1db954; }
+
+/* --- PIE DE PÁGINA (FOOTER) --- */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+footer .logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #bdc3c7;
+    font-size: 0.9rem;
+}
+
+/* --- DISEÑO RESPONSIVE (CELULARES) --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .about, .location {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .section {
+        padding: 70px 5% 40px 5%;
+    }
+}
+
+/* --- SECCIÓN CONTACTO (SOLO WHATSAPP) --- */
+.contact-section {
+    background-color: var(--bg-light);
+}
+
+.contact-single {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: var(--white);
+    border: 1px solid #eaeaea;
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: var(--transition);
+    width: 100%;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: #25d366; /* Color característico de WhatsApp */
+}
+
+.contact-card i {
+    font-size: 3rem;
+    color: #25d366; /* Icono verde de WhatsApp */
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.contact-link {
+    display: inline-block;
+    background-color: #25d366;
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.contact-link:hover {
+    background-color: #20ba5a;
+    transform: translateY(-2px);
+}
