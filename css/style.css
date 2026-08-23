@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #2c3e50;       /* Color principal elegante/oscuro */
+    --primary-color: #2c3e50;      /* Color principal elegante/oscuro */
     --accent-color: #3498db;        /* Azul moderno para detalles */
     --accent-hover: #2980b9;
     --bg-light: #f8f9fa;            /* Fondo claro alternativo */
@@ -48,9 +48,19 @@ header .logo {
 }
 
 header .logo img {
-    height: 55px; /* Aumenta este valor si lo quieres más grande (ej. 60px u 80px) */
-    width: auto;  /* Mantiene la proporción original para que no se deforme */
+    height: 55px; 
+    width: auto;  
     object-fit: contain;
+}
+
+/* --- BOTÓN MENÚ HAMBURGUESA (OCULTO EN PC) --- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
 }
 
 nav {
@@ -96,13 +106,13 @@ nav a:hover {
 
 /* --- SECCIÓN HERO (INICIO) --- */
 .hero {
-    height: 80vh; /* Puedes ajustar la altura a tu gusto */
-    background: var(--bg-light); /* Fondo claro en lugar de la imagen oscura */
+    height: 80vh; 
+    background: var(--bg-light); 
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--text-dark); /* Texto oscuro para que contraste bien con el fondo claro */
+    color: var(--text-dark); 
     padding: 0 20px;
 }
 
@@ -111,7 +121,7 @@ nav a:hover {
     margin-bottom: 15px;
     font-weight: 800;
     letter-spacing: -1px;
-    color: var(--primary-color); /* Color institucional para el título principal */
+    color: var(--primary-color); 
 }
 
 .hero-content p {
@@ -124,7 +134,7 @@ nav a:hover {
 
 .hero-content .small-title {
     color: var(--accent-color);
-    background: rgba(52, 152, 219, 0.1); /* Sutil fondo azulado claro para la etiqueta */
+    background: rgba(52, 152, 219, 0.1); 
     display: inline-block;
     padding: 5px 15px;
     border-radius: 20px;
@@ -300,56 +310,9 @@ nav a:hover {
 .social-instagram:hover { background-color: #e1306c; }
 .social-spotify:hover { background-color: #1db954; }
 
-/* --- PIE DE PÁGINA (FOOTER) --- */
-footer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    text-align: center;
-    padding: 40px 20px;
-}
-
-footer .logo {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-footer p {
-    color: #bdc3c7;
-    font-size: 0.9rem;
-}
-
-/* --- DISEÑO RESPONSIVE (CELULARES) --- */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 15px;
-        gap: 10px;
-    }
-
-    nav {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero-content h1 {
-        font-size: 2.4rem;
-    }
-
-    .about, .location {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .section {
-        padding: 70px 5% 40px 5%;
-    }
-}
-
 /* --- SECCIÓN CONTACTO (SOLO WHATSAPP) --- */
 .contact-section {
-    background-color: var(--bg-light);
+    background-color: var(--white);
 }
 
 .contact-single {
@@ -360,7 +323,7 @@ footer p {
 }
 
 .contact-card {
-    background: var(--white);
+    background: var(--bg-light);
     border: 1px solid #eaeaea;
     padding: 40px 30px;
     border-radius: 12px;
@@ -373,12 +336,12 @@ footer p {
 .contact-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    border-color: #25d366; /* Color característico de WhatsApp */
+    border-color: #25d366; 
 }
 
 .contact-card i {
     font-size: 3rem;
-    color: #25d366; /* Icono verde de WhatsApp */
+    color: #25d366; 
     margin-bottom: 15px;
 }
 
@@ -410,4 +373,84 @@ footer p {
 .contact-link:hover {
     background-color: #20ba5a;
     transform: translateY(-2px);
+}
+
+/* --- PIE DE PÁGINA (FOOTER) --- */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+footer .logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #bdc3c7;
+    font-size: 0.9rem;
+}
+
+/* --- DISEÑO RESPONSIVE (CELULARES) --- */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 5%;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    nav.active {
+        max-height: 350px;
+        padding: 15px 0;
+    }
+
+    nav a {
+        padding: 12px 0;
+        width: 100%;
+        text-align: center;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    nav a:last-child {
+        border-bottom: none;
+    }
+
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .about, .location {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .section {
+        padding: 70px 5% 40px 5%;
+    }
+
+    .schedule {
+        grid-template-columns: 1fr;
+    }
 }

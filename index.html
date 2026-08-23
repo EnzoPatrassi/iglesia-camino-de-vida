@@ -14,7 +14,13 @@
         <div class="logo">
             <img src="images/logo.jpg" alt="Logo de la iglesia">
         </div>
-        <nav>
+        
+        <!-- Botón Menú Hamburguesa (Solo visible en celulares) -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav id="navMenu">
             <a href="#inicio">Inicio</a>
             <a href="#iglesia">La Iglesia</a>
             <a href="#horarios">Horarios</a>
@@ -197,6 +203,22 @@
         <div class="logo">Camino de Vida</div>
         <p>© 2026 Camino de Vida. Todos los derechos reservados.</p>
     </footer>
+
+<script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Cierra el menú automáticamente al hacer clic en cualquier opción
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
