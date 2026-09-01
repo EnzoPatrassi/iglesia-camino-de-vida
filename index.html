@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camino de Vida</title>
-    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tipografía moderna Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- ENCABEZADO GLASSMORPHISM -->
+    <!-- ENCABEZADO -->
     <header class="glass-header">
         <div class="logo">
             <img src="images/logo.jpg" alt="Logo de la iglesia">
@@ -32,29 +37,47 @@
 
     <main>
         <!-- INICIO -->
-        <section id="inicio" class="hero dynamic-bg">
+        <section id="inicio" class="hero">
             <div class="hero-content glass-card reveal">
+                <span class="badge">Bienvenidos</span>
                 <h1 class="gradient-text">Iglesia Camino de Vida</h1>
                 <p>Un lugar para encontrarnos, crecer en la fe y compartir juntos.</p>
             </div>
         </section>
 
         <!-- INFORMACIÓN DE LA IGLESIA -->
-        <section id="iglesia" class="section">
+        <section id="iglesia" class="section bg-light">
             <div class="section-title reveal">
                 <p class="small-title">CONÓCENOS</p>
-                <h2 class="gradient-text">Sobre nuestra iglesia</h2>
+                <h2>Sobre nuestra iglesia</h2>
             </div>
 
-            <div class="about">
-                <div class="about-image reveal fade-left">
-                    <img src="images/fondo.jpg" alt="Iglesia Camino de Vida">
-                </div>
+            <!-- Texto arriba -->
+            <div class="about-text-top reveal">
+                <h3>Una comunidad para todos</h3>
+                <p>Somos una comunidad que busca compartir la palabra de Dios, acompañarnos y crecer juntos en la fe.</p>
+                <p>En nuestra iglesia encontrarás un espacio para compartir, aprender y formar parte de una comunidad.</p>
+            </div>
 
-                <div class="about-text reveal fade-right">
-                    <h3>Una comunidad para todos</h3>
-                    <p>Somos una comunidad que busca compartir la palabra de Dios, acompañarnos y crecer juntos en la fe.</p>
-                    <p>En nuestra iglesia encontrarás un espacio para compartir, aprender y formar parte de una comunidad.</p>
+            <!-- Galería Mosaico Elegante (Estilo Bento) -->
+            <div class="church-mosaic reveal fade-up">
+                <div class="mosaic-item item-main card-3d">
+                    <img src="images/Sony PlayStation 4 Slim.jpg" alt="Descripción de la foto">
+                </div>
+                <div class="mosaic-item item-main card-3d">
+                    <img src="images/Sony PlayStation 5 Slim Standard Edition.jpg" alt="Descripción de la foto">
+                </div>
+                <div class="mosaic-item item-main card-3d">
+                    <img src="images/PlayStation Portal Remote Player.jpg" alt="Descripción de la foto">
+                </div>
+                <div class="mosaic-item item-main card-3d">
+                    <img src="images/Microsoft Xbox 360.jpg" alt="Descripción de la foto">
+                </div>
+                <div class="mosaic-item item-main card-3d">
+                    <img src="images/Microsoft Xbox Series S.jpg" alt="Descripción de la foto">
+                </div>
+                <div class="mosaic-item item-main card-3d">
+                    <img src="images/Nintendo Switch Modelo OLED.jpg" alt="Descripción de la foto">
                 </div>
             </div>
         </section>
@@ -63,25 +86,36 @@
         <section id="horarios" class="section">
             <div class="section-title reveal">
                 <p class="small-title">ENCUENTROS</p>
-                <h2 class="gradient-text">Horarios</h2>
+                <h2>Horarios</h2>
             </div>
             <div class="schedule">
+                <!-- Ícono de Mujer -->
                 <div class="schedule-card card-3d reveal">
+                    <div class="icon-wrap"><i class="fa-solid fa-person-dress"></i></div>
                     <h3>Miércoles</h3>
                     <p>Reunión de Mujeres</p>
                     <strong>20:00 hs</strong>
                 </div>
-                <div class="schedule-card card-3d reveal">
+                
+                <!-- Ícono de Hombre -->
+                <div class="schedule-card card-3d reveal" style="transition-delay: 0.1s;">
+                    <div class="icon-wrap"><i class="fa-solid fa-person"></i></div>
                     <h3>Jueves</h3>
                     <p>Reunión de Hombres</p>
                     <strong>21:00 hs</strong>
                 </div>
-                <div class="schedule-card card-3d reveal">
+                
+                <!-- Ícono de Grupo/Jóvenes -->
+                <div class="schedule-card card-3d reveal" style="transition-delay: 0.2s;">
+                    <div class="icon-wrap"><i class="fa-solid fa-people-group"></i></div>
                     <h3>Sábado</h3>
                     <p>Reunión de jóvenes</p>
                     <strong>19:45 hs</strong>
                 </div>
-                <div class="schedule-card card-3d reveal">
+                
+                <!-- Ícono de Iglesia -->
+                <div class="schedule-card card-3d reveal" style="transition-delay: 0.3s;">
+                    <div class="icon-wrap"><i class="fa-solid fa-church"></i></div>
                     <h3>Domingo</h3>
                     <p>Reunión general</p>
                     <strong>11:00 hs</strong>
@@ -90,14 +124,13 @@
         </section>
 
         <!-- STREAMING -->
-        <section id="streaming" class="section streaming-section">
+        <section id="streaming" class="section streaming-section bg-light">
             <div class="section-title reveal">
                 <p class="small-title">TRANSMISIÓN</p>
-                <h2 class="gradient-text">Estamos en vivo</h2>
+                <h2>Estamos en vivo</h2>
             </div>
             <div class="streaming reveal fade-up">
                 <div class="video-placeholder card-3d">
-                    <!-- Enlace limpio para que inicie desde el principio -->
                     <iframe src="https://www.youtube.com/embed/oXqEI_nA8jk"
                         title="Transmisión en vivo"
                         width="100%" height="100%" style="border:0;"
@@ -112,7 +145,7 @@
         <section id="ubicacion" class="section location-section">
             <div class="section-title reveal">
                 <p class="small-title">VISÍTANOS</p>
-                <h2 class="gradient-text">¿Dónde estamos?</h2>
+                <h2>¿Dónde estamos?</h2>
             </div>
             <div class="location">
                 <div class="map-placeholder reveal fade-left card-3d">
@@ -123,34 +156,34 @@
                 </div>
                 <div class="location-info reveal fade-right">
                     <h3>Iglesia Camino de Vida</h3>
-                    <p>📍 Tandil 2810, Las Heras, Mendoza, Argentina<br></p>
+                    <p class="address"><i class="fa-solid fa-location-dot"></i> Tandil 2810, Las Heras, Mendoza, Argentina</p>
                     <a href="https://maps.app.goo.gl/Q8kB9rR1LfJzAKxT9" target="_blank" class="button primary">
-                        Cómo llegar
+                        Cómo llegar <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- REDES -->
-        <section id="redes" class="section social-section">
+        <section id="redes" class="section social-section bg-light">
             <div class="section-title reveal">
                 <p class="small-title">CONECTÁ CON NOSOTROS</p>
-                <h2 class="gradient-text">Nuestras redes</h2>
+                <h2>Nuestras redes</h2>
             </div>
             <div class="social-links reveal">
-                <a href="https://www.youtube.com/@caminodevidamza" target="_blank" class="social-youtube card-3d">
+                <a href="https://www.youtube.com/@caminodevidamza" target="_blank" class="social-btn yt card-3d">
                     <i class="fa-brands fa-youtube"></i> <span>YouTube</span>
                 </a>
-                <a href="https://www.tiktok.com/@caminodevida_mza" target="_blank" class="social-tiktok card-3d">
+                <a href="https://www.tiktok.com/@caminodevida_mza" target="_blank" class="social-btn tk card-3d">
                     <i class="fa-brands fa-tiktok"></i> <span>TikTok</span>
                 </a>
-                <a href="https://www.instagram.com/caminodevida_mza/" target="_blank" class="social-instagram card-3d">
-                    <i class="fa-brands fa-instagram"></i> <span>Instagram Iglesia</span>
+                <a href="https://www.instagram.com/caminodevida_mza/" target="_blank" class="social-btn ig card-3d">
+                    <i class="fa-brands fa-instagram"></i> <span>Iglesia</span>
                 </a>
-                <a href="https://www.instagram.com/caminoenlinea/" target="_blank" class="social-instagram card-3d">
-                    <i class="fa-brands fa-instagram"></i> <span>Instagram Radio</span>
+                <a href="https://www.instagram.com/caminoenlinea/" target="_blank" class="social-btn ig card-3d">
+                    <i class="fa-brands fa-instagram"></i> <span>Radio</span>
                 </a>
-                <a href="https://open.spotify.com/show/033hfXa6dhadfKx0eyj9kW" target="_blank" class="social-spotify card-3d">
+                <a href="https://open.spotify.com/show/033hfXa6dhadfKx0eyj9kW" target="_blank" class="social-btn sp card-3d">
                     <i class="fa-brands fa-spotify"></i> <span>Spotify</span>
                 </a>
             </div>
@@ -160,14 +193,18 @@
         <section id="contacto" class="section contact-section">
             <div class="section-title reveal">
                 <p class="small-title">CONTACTO</p>
-                <h2 class="gradient-text">Estamos para ayudarte</h2>
+                <h2>Estamos para ayudarte</h2>
             </div>
             <div class="contact-single reveal fade-up">
                 <div class="contact-card card-3d">
-                    <i class="fa-brands fa-whatsapp"></i>
+                    <div class="icon-blob">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
                     <h3>Escríbenos por WhatsApp</h3>
                     <p>¿Tienes alguna consulta o necesitas que te acompañemos en oración? Comunícate con nosotros de forma directa.</p>
-                    <a href="https://wa.me/5492613633617" target="_blank" class="contact-link">Enviar mensaje</a>
+                    <a href="https://wa.me/5492613633617" target="_blank" class="contact-link">
+                        Enviar mensaje
+                    </a>
                 </div>
             </div>
         </section>
@@ -175,8 +212,10 @@
 
     <!-- PIE DE PÁGINA -->
     <footer>
-        <div class="logo">Camino de Vida</div>
-        <p>© 2026 Camino de Vida. Todos los derechos reservados.</p>
+        <div class="footer-content">
+            <div class="logo">Camino de Vida</div>
+            <p>© 2026 Camino de Vida. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script>
@@ -194,23 +233,17 @@
             });
         });
 
-        /* --- ANIMACIONES DE SCROLL (INTERSECTION OBSERVER) --- */
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
+        /* --- ANIMACIONES DE SCROLL --- */
+        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const scrollObserver = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
                 entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Anima solo una vez al bajar
+                observer.unobserve(entry.target); 
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            scrollObserver.observe(el);
-        });
+        document.querySelectorAll('.reveal').forEach(el => scrollObserver.observe(el));
     </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* --- RESET Y VARIABLES GENERALES --- */
+/* --- RESET Y VARIABLES PREMIUM --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,525 +6,328 @@
 }
 
 :root {
-    --primary-color: #2c3e50;      /* Color principal elegante/oscuro */
-    --accent-color: #3498db;        /* Azul moderno para detalles */
-    --accent-hover: #2980b9;
-    --bg-light: #f8f9fa;            /* Fondo claro alternativo */
-    --text-dark: #333333;
-    --text-muted: #666666;
+    --primary-color: #0f172a;      /* Azul muy oscuro/elegante */
+    --accent-color: #0ea5e9;       /* Celeste moderno */
+    --accent-hover: #0284c7;
+    --bg-body: #ffffff;
+    --bg-light: #f8fafc;           /* Gris sutil para separar secciones */
+    --text-dark: #334155;
+    --text-muted: #64748b;
     --white: #ffffff;
-    --transition: all 0.3s ease;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
+    --radius-lg: 24px;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-html {
-    scroll-behavior: smooth;        /* Desplazamiento suave al hacer clic en el menú */
-}
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Outfit', sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
-    background-color: var(--white);
+    background-color: var(--bg-body);
 }
 
-/* --- ENCABEZADO (HEADER) --- */
+.bg-light { background-color: var(--bg-light); }
+
+/* --- ENCABEZADO MODERNO --- */
 header {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    top: 0; left: 0; width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 12px 5%;
     z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-header .logo {
-    display: flex;
-    align-items: center;
-}
+header .logo img { height: 50px; width: auto; object-fit: contain; }
 
-header .logo img {
-    height: 55px; 
-    width: auto;  
-    object-fit: contain;
-}
-
-/* --- BOTÓN MENÚ HAMBURGUESA (OCULTO EN PC) --- */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    cursor: pointer;
-}
-
-nav {
-    display: flex;
-    gap: 20px;
-}
+nav { display: flex; gap: 25px; }
 
 nav a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--primary-color);
     font-weight: 600;
     font-size: 0.95rem;
-    transition: var(--transition);
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: var(--accent-color);
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0; height: 2px;
+    bottom: -4px; left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
 }
 
-/* --- ESTILOS GENERALES DE SECCIONES --- */
-.section {
-    padding: 90px 10% 60px 10%;
+nav a:hover { color: var(--accent-color); }
+nav a:hover::after { width: 100%; }
+
+.menu-toggle {
+    display: none;
+    background: none; border: none;
+    font-size: 1.5rem; color: var(--primary-color);
+    cursor: pointer;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
+/* --- ESTILOS DE SECCIONES --- */
+.section { padding: 100px 5% 80px 5%; }
+
+.section-title { text-align: center; margin-bottom: 60px; }
 
 .small-title {
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--accent-color);
-    margin-bottom: 8px;
-    text-transform: uppercase;
+    font-size: 0.85rem; font-weight: 800;
+    letter-spacing: 3px; color: var(--accent-color);
+    margin-bottom: 12px; text-transform: uppercase;
 }
 
 .section-title h2 {
-    font-size: 2.2rem;
+    font-size: 2.5rem; font-weight: 800;
     color: var(--primary-color);
+    letter-spacing: -1px;
 }
 
-/* --- SECCIÓN HERO (INICIO) --- */
+/* --- HERO (INICIO) --- */
 .hero {
-    height: 80vh; 
-    background: var(--bg-light); 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--text-dark); 
-    padding: 0 20px;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), url('../images/fondo.jpg') no-repeat center center/cover;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 0 20px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    max-width: 800px; width: 100%;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(14, 165, 233, 0.2);
+    color: #38bdf8;
+    padding: 6px 18px; border-radius: 30px;
+    font-size: 0.85rem; font-weight: 600;
+    margin-bottom: 20px; border: 1px solid rgba(14, 165, 233, 0.3);
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    color: var(--primary-color); 
+    font-size: 4rem; font-weight: 800;
+    letter-spacing: -2px; color: var(--white);
+    margin-bottom: 20px; line-height: 1.1;
 }
 
 .hero-content p {
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
+    font-size: 1.25rem; font-weight: 300;
+    color: #cbd5e1; max-width: 600px; margin: 0 auto;
 }
 
-.hero-content .small-title {
-    color: var(--accent-color);
-    background: rgba(52, 152, 219, 0.1); 
-    display: inline-block;
-    padding: 5px 15px;
-    border-radius: 20px;
+/* --- LA IGLESIA --- */
+.about-text-top {
+    max-width: 800px; margin: 0 auto 50px auto;
+    text-align: center;
 }
 
-/* --- SECCIÓN SOBRE LA IGLESIA (ABOUT) --- */
-.about {
+.about-text-top h3 {
+    font-size: 2rem; color: var(--primary-color);
+    margin-bottom: 20px; font-weight: 800;
+}
+
+.about-text-top p {
+    color: var(--text-muted); font-size: 1.15rem;
+    margin-bottom: 15px; font-weight: 300;
+}
+
+/* --- GALERÍA UNIFORME (FOTOS COMPLETAS Y DEL MISMO TAMAÑO) --- */
+.church-mosaic {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    /* Crea columnas del mismo ancho que se adaptan solas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+}
+
+.mosaic-item {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: var(--white); /* Fondo blanco para rellenar los huecos de la foto */
+    height: 260px; /* Altura idéntica y fija para TODAS las tarjetas */
+    display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 15px; /* Un pequeño margen para que la foto no toque los bordes */
+    border: 1px solid rgba(0,0,0,0.03);
 }
 
-.about-image img {
+.mosaic-item img {
     width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    /* ESTA ES LA CLAVE: contain obliga a que se vea la foto entera sin cortar nada */
+    object-fit: contain; 
+    transition: transform 0.5s ease;
 }
 
-.about-text h3 {
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+.mosaic-item:hover img {
+    transform: scale(1.05); /* Zoom suave al pasar el mouse */
 }
 
-.about-text p {
-    color: var(--text-muted);
-    margin-bottom: 15px;
-    font-size: 1.05rem;
+/* Anulamos los tamaños asimétricos anteriores para que todas queden iguales */
+.item-main, .item-wide {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+}
+
+/* Ajuste responsive para celulares */
+@media (max-width: 768px) {
+    .mosaic-item {
+        height: 220px;
+    }
 }
 
 /* --- HORARIOS --- */
 .schedule {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 800px;
-    margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; max-width: 1100px; margin: 0 auto;
 }
 
 .schedule-card {
-    background: var(--bg-light);
-    border: 1px solid #eaeaea;
-    padding: 35px 30px;
-    border-radius: 12px;
-    text-align: center;
+    background: var(--white); padding: 40px 30px;
+    border-radius: var(--radius-lg); text-align: center;
+    box-shadow: var(--shadow-md); position: relative;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.icon-wrap {
+    width: 60px; height: 60px;
+    background: var(--bg-light); color: var(--accent-color);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin: 0 auto 20px auto;
     transition: var(--transition);
 }
 
-.schedule-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    border-color: var(--accent-color);
-}
+.schedule-card:hover .icon-wrap { background: var(--accent-color); color: var(--white); }
 
-.schedule-card h3 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
+.schedule-card h3 { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 10px; }
+.schedule-card p { color: var(--text-muted); margin-bottom: 15px; }
+.schedule-card strong { font-size: 1.4rem; color: var(--primary-color); font-weight: 800; }
 
-.schedule-card p {
-    color: var(--text-muted);
-    margin-bottom: 15px;
-}
+/* --- STREAMING & MAPA --- */
+.streaming, .location { max-width: 1000px; margin: 0 auto; }
 
-.schedule-card strong {
-    font-size: 1.3rem;
-    color: var(--accent-color);
+.video-placeholder, .map-placeholder {
+    border-radius: var(--radius-lg); overflow: hidden;
+    box-shadow: var(--shadow-md); background: var(--bg-light);
 }
-
-/* --- UBICACIÓN --- */
-.location-section {
-    background-color: var(--bg-light);
-}
+.video-placeholder { aspect-ratio: 16/9; }
 
 .location {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 50px; align-items: center;
 }
 
-.map-placeholder iframe {
-    width: 100%;
-    height: 380px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-.location-info h3 {
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
-.location-info p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 25px;
-}
+.location-info h3 { font-size: 2rem; color: var(--primary-color); margin-bottom: 15px; }
+.address { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; display: flex; gap: 10px; align-items: center;}
+.address i { color: var(--accent-color); font-size: 1.3rem; }
 
 .button.primary {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--white);
-    padding: 12px 25px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition);
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--primary-color); color: var(--white);
+    padding: 14px 30px; border-radius: 50px; font-weight: 600;
+    text-decoration: none; box-shadow: var(--shadow-sm); transition: var(--transition);
 }
-
-.button.primary:hover {
-    background-color: var(--accent-hover);
-}
-
-/* --- STREAMING --- */
-.streaming-section {
-    text-align: center;
-}
-
-.streaming {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.video-placeholder {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
+.button.primary:hover { background: var(--accent-color); transform: translateY(-3px); box-shadow: var(--shadow-md); }
 
 /* --- REDES SOCIALES --- */
-.social-section {
-    background-color: var(--bg-light);
-}
-
 .social-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: 20px; max-width: 900px; margin: 0 auto;
 }
 
-.social-links a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--white);
-    color: var(--text-dark);
-    padding: 12px 22px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
+.social-btn {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--white); color: var(--text-dark);
+    padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 600;
+    box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.03);
 }
 
-.social-links a:hover {
-    transform: translateY(-3px);
-    color: var(--white);
-}
+.social-btn i { font-size: 1.4rem; }
+.social-btn:hover { color: var(--white); transform: translateY(-5px); }
+.social-btn.yt:hover { background: #ff0000; border-color: #ff0000; }
+.social-btn.tk:hover { background: #000000; border-color: #000000; }
+.social-btn.ig:hover { background: #e1306c; border-color: #e1306c; }
+.social-btn.sp:hover { background: #1db954; border-color: #1db954; }
 
-/* Colores institucionales de marcas en redes */
-.social-youtube:hover { background-color: #ff0000; }
-.social-tiktok:hover { background-color: #000000; }
-.social-instagram:hover { background-color: #e1306c; }
-.social-spotify:hover { background-color: #1db954; }
-
-/* --- SECCIÓN CONTACTO (SOLO WHATSAPP) --- */
-.contact-section {
-    background-color: var(--white);
-}
-
-.contact-single {
-    display: flex;
-    justify-content: center;
-    max-width: 600px;
-    margin: 0 auto;
-}
+/* --- CONTACTO --- */
+.contact-single { display: flex; justify-content: center; max-width: 600px; margin: 0 auto; }
 
 .contact-card {
-    background: var(--bg-light);
-    border: 1px solid #eaeaea;
-    padding: 40px 30px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-    transition: var(--transition);
-    width: 100%;
+    background: var(--white); padding: 50px 40px;
+    border-radius: var(--radius-lg); text-align: center;
+    box-shadow: var(--shadow-md); width: 100%; border: 1px solid rgba(0,0,0,0.03);
 }
 
-.contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    border-color: #25d366; 
+.icon-blob {
+    width: 80px; height: 80px; background: rgba(37, 211, 102, 0.1);
+    color: #25d366; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    display: flex; align-items: center; justify-content: center; font-size: 2.5rem;
+    margin: 0 auto 25px auto; transition: var(--transition);
 }
 
-.contact-card i {
-    font-size: 3rem;
-    color: #25d366; 
-    margin-bottom: 15px;
-}
-
-.contact-card h3 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-
-.contact-card p {
-    color: var(--text-muted);
-    font-size: 1rem;
-    margin-bottom: 25px;
-}
+.contact-card:hover .icon-blob { border-radius: 50%; background: #25d366; color: var(--white); transform: rotate(10deg); }
+.contact-card h3 { font-size: 1.8rem; color: var(--primary-color); margin-bottom: 15px; }
+.contact-card p { color: var(--text-muted); margin-bottom: 30px; font-size: 1.1rem; }
 
 .contact-link {
-    display: inline-block;
-    background-color: #25d366;
-    color: var(--white);
-    padding: 12px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: var(--transition);
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    display: inline-block; background: #25d366; color: var(--white);
+    padding: 16px 40px; border-radius: 50px; text-decoration: none;
+    font-weight: 600; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); transition: var(--transition);
 }
+.contact-link:hover { background: #20ba5a; transform: translateY(-3px); box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4); }
 
-.contact-link:hover {
-    background-color: #20ba5a;
-    transform: translateY(-2px);
-}
+/* --- PIE DE PÁGINA --- */
+footer { background: var(--primary-color); color: var(--white); padding: 60px 20px; text-align: center; }
+footer .logo { font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; letter-spacing: -1px; }
+footer p { color: #94a3b8; }
 
-/* --- PIE DE PÁGINA (FOOTER) --- */
-footer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    text-align: center;
-    padding: 40px 20px;
-}
-
-footer .logo {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-footer p {
-    color: #bdc3c7;
-    font-size: 0.9rem;
-}
-
-/* --- DISEÑO RESPONSIVE (CELULARES) --- */
-@media (max-width: 768px) {
-    header {
-        padding: 15px 5%;
-        justify-content: space-between;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-in-out;
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    nav.active {
-        max-height: 350px;
-        padding: 15px 0;
-    }
-
-    nav a {
-        padding: 12px 0;
-        width: 100%;
-        text-align: center;
-        font-size: 1.1rem;
-        border-bottom: 1px solid #f0f0f0;
-    }
-
-    nav a:last-child {
-        border-bottom: none;
-    }
-
-    .hero-content h1 {
-        font-size: 2.3rem;
-    }
-
-    .about, .location {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .section {
-        padding: 70px 5% 40px 5%;
-    }
-
-    .schedule {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ========================================================
-   EFECTOS AVANZADOS (GLASSMORPHISM, 3D, DEGRADADOS Y SCROLL)
-   ======================================================== */
-
-/* 1. TEXTO CON DEGRADADO (Gradient Typography) */
-.gradient-text {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
-}
-
-/* 2. ENCABEZADO GLASSMORPHISM (Efecto vidrio esmerilado) */
-.glass-header {
-    background: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-/* 3. HERO BACKGROUND DINÁMICO Y TARJETA DE VIDRIO */
-.dynamic-bg {
-    /* Fondo limpio pero con sutiles destellos de color en las esquinas */
-    background: radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(44, 62, 80, 0.05) 0%, transparent 40%),
-                var(--bg-light) !important;
-}
-
-.glass-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    padding: 50px 40px;
-    border-radius: 24px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-}
-
-/* 4. ANIMACIONES DE APARICIÓN (REVEAL ON SCROLL) */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px); /* Empieza un poco más abajo */
-    transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0); /* Vuelve a su posición original */
-}
-
-/* Variaciones de dirección de entrada */
-.fade-left { transform: translateX(-60px); }
-.fade-right { transform: translateX(60px); }
+/* --- EFECTOS 3D Y ANIMACIONES --- */
+.card-3d { transition: var(--transition); }
+.card-3d:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.fade-left { transform: translateX(-40px); }
+.fade-right { transform: translateX(40px); }
 .fade-left.active, .fade-right.active { transform: translateX(0); }
 
-/* 5. EFECTO DE PROFUNDIDAD 3D EN TARJETAS */
-.card-3d {
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
-}
-
-.card-3d:hover {
-    transform: translateY(-12px) scale(1.03) !important;
-    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.1) !important;
-    border-color: transparent !important; /* Desaparece el borde para dar más relieve */
-}
-
-/* Ajuste específico para que la tarjeta de WhatsApp brille verde en 3D */
-.contact-card.card-3d:hover {
-    border-color: #25d366 !important; 
-    box-shadow: 0 20px 45px rgba(37, 211, 102, 0.15) !important;
+/* --- RESPONSIVE CELULARES --- */
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    nav {
+        position: absolute; top: 100%; left: 0; width: 100%;
+        background: rgba(255, 255, 255, 0.98); flex-direction: column;
+        align-items: center; gap: 0; max-height: 0; overflow: hidden;
+        transition: max-height 0.4s ease; box-shadow: var(--shadow-md);
+    }
+    nav.active { max-height: 400px; padding: 10px 0; }
+    nav a { padding: 15px 0; width: 100%; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    nav a::after { display: none; }
+    .hero-content h1 { font-size: 2.8rem; }
+    .section { padding: 80px 5% 40px 5%; }
+    .location { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+    .address { justify-content: center; }
 }
