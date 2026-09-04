@@ -220,7 +220,10 @@
         });
 
         /* --- ANIMACIONES DE SCROLL --- */
-        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const observerOptions = { 
+            threshold: 0.05, 
+            rootMargin: "0px" 
+        };
         const scrollObserver = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
